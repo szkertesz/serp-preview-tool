@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SERP tool</title>
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
+        rel="stylesheet"> -->
+    <style>
+        body {
+            font-family: sans-serif;
+            font-family: Roboto, sans-serif;
+        }
+        
+        #title-display,
+        #desc-display {
+            font-family: Roboto, sans-serif;
+            font-weight: 400;
+        }
+        
+        #title-display {
+            font-size: 20px;
+            height: 26px;
+            line-height: 1;
+        }
+        
+        #desc-display {
+            font-size: 14px;
+            height: auto;
+            line-height: 22.12px;
+        }
+        h2 {
+            font-weight: bold;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>SERP Preview Tool</h1>
+    </header>
+    <main>
+        <section>
+            <h2>Research findings</h2>
+            <h3>Title Tag length for Google</h3>
+
+            <h4><a href="https://www.conductor.com/academy/title-tag/">Conductor</a></h4>
+            <p>Minimum amount: 30 characters or 285 pixels<br>
+                Maximum amount: 60 characters or 575 pixels</p>
+
+            <h4><a href="https://moz.com/learn/seo/title-tag">Moz.com</a></h4>
+            <p>While Google does not specify a recommended length for title tags, most desktop and mobile browsers are
+                able to display the first 50–60 characters of a title tag. If you keep your titles under 60 characters,
+                our research suggests that you can expect about 90% of your titles to display properly in the SERPs.</p>
+            <p>Display titles in Google results have a 600-pixel width limit, but most are truncated before that at the
+                nearest word break.</p>
+
+            <h3>Meta Descriptions</h3>
+            <h4><a href="https://moz.com/learn/seo/meta-description">Moz.com</a></h4>
+            <p>Google generally truncates snippets to ~155-160 characters. It's best to keep meta descriptions long
+                enough that they're sufficiently descriptive, so we recommend descriptions between 50 and 160
+                characters.</p>
+        </section>
+        <section>
+            <h2>Inputs</h2>
+            <form action="">
+                <label for="title-tag-input">Title tag</label>
+                <input type="text" id="title-tag-input">
+
+                <label for="desc-input">Description</label>
+                <textarea type="text" id="desc-input"></textarea>
+            </form>
+        </section>
+        <section>
+            <h2>Results</h2>
+            <p>For the most accurate results, view on a desktop browser.</p>
+            <span id="title-display"></span>
+            <span id="title-length-display"></span>
+            <canvas id="title-canvas" width="0" height="0"></canvas>
+        </section>
+    </main>
+    <footer>
+        <p>Created by szkertesz</p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+</html>
