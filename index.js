@@ -1,14 +1,24 @@
 const titleInput = document.getElementById('title-tag-input')
 const descInput = document.getElementById('desc-input')
+
 const fontURLRoboto = 'https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2'
 const fontURLRobotoBold = 'https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmWUlfBBc4.woff2'
 const fontFaceRoboto = new FontFace('Roboto', `url(${fontURLRoboto})`)
-const fontFaceRobotoBold = new FontFace('Roboto-bold', `url(${fontURLRobotoBold})`)
+const fontFaceRobotoBold = new FontFace('Roboto-bold', `url(${fontURLRobotoBold})`, {
+    style: 'normal',
+    weight: 500,
+})
 
 const serpData = {
     title: '',
     desc: '',
 }
+
+;(async function loadFonts() {
+    await fontFaceRoboto.load()
+    document.fonts.add(fontFaceRoboto)
+})()
+
 
 const pubsub = (() => {
     const events = {};
@@ -61,12 +71,12 @@ const pubsub = (() => {
 })();
 
 /* ************************************** load fonts ************************************** */
-fontFaceRoboto.load().then((font) =>{
-    document.fonts.add(font)
-})
-fontFaceRobotoBold.load().then((font) =>{
-    document.fonts.add(font)
-})
+// fontFaceRoboto.load().then((font) =>{
+//     document.fonts.add(font)
+// })
+// fontFaceRobotoBold.load().then((font) =>{
+//     document.fonts.add(font)
+// })
 
 /* ************************************** callbacks ************************************** */
 function measureTitleWidth(_event, data) {
@@ -78,9 +88,14 @@ function measureTitleWidth(_event, data) {
     console.log(textMetrics.width)
 }
 
+function displayTitle(_event, data) {
+    const titleEl = document.getElementById('title-display')
+    titleEl.innerText = serpData.title
+}
+
 function displayTitleLength(_event, data) {
     const titleLengthEl = document.getElementById('title-length-display')
-    titleLengthEl.innerText = `The length of title: ${serpData.title.length}`
+    titleLengthEl.innerText = `The length of title: ${Math.ceil(serpData.title.length)}`
 }
 
 /* ************************************** subscribers ************************************** */
@@ -124,10 +139,10 @@ function descUpdateEvent(e) {
 //         displaySquaresSubscription = null;
 //     }
 // }
+pubsub.subscribe('updateTitle', displayTitle)
 pubsub.subscribe('updateTitle', displayTitleLength)
 pubsub.subscribe('updateTitle', measureTitleWidth)
 
 /* ************************************** event listeners ************************************** */
 titleInput.addEventListener('input', titleUpdateEvent)
 descInput.addEventListener('input', descUpdateEvent)
-
