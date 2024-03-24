@@ -93,6 +93,11 @@ function displayTitle(_event, data) {
     titleEl.innerText = serpData.title
 }
 
+function displayDesc(_event, data) {
+    const descEl = document.getElementById('desc-display')
+    descEl.innerText = serpData.desc
+}
+
 function displayTitleLength(_event, data) {
     const titleLengthEl = document.getElementById('title-length-display')
     titleLengthEl.innerText = `The length of title: ${Math.ceil(serpData.title.length)}`
@@ -110,36 +115,8 @@ function descUpdateEvent(e) {
     pubsub.publish('updateDesc', { serpData })
 }
 
-// function displaySquares(_event, data) {
-//     let squares = '';
-//     Array(data.numberOfSquares).fill(null).forEach(() => {
-//         squares += '<div class="square"></div>';
-//     });
-//     document.querySelector('.squares').innerHTML = squares;
-// }
-
-// function displayAlert(_event, data) {
-//     const alert = document.querySelector('.alert');
-//     alert.innerHTML = `The number of squares is: ${data.numberOfSquares}`;
-// }
-
-/* ************************************** subscribing displayAlert and displaySquares ************************************** */
-// let displayAlertSubscription = pubsub.subscribe('addSquare', displayAlert);
-// let displaySquaresSubscription = pubsub.subscribe('addSquare', displaySquares);
-
-/* ************************************** subscribe updateEvents ************************************** */
-// function subDisplaySquares() {
-//     if (!displaySquaresSubscription) {
-//         displaySquaresSubscription = pubsub.subscribe('addSquare', displaySquares);
-//     }
-// }
-// function unsubDisplaySquares() {
-//     if (displaySquaresSubscription) {
-//         pubsub.unsubscribe(displaySquaresSubscription);
-//         displaySquaresSubscription = null;
-//     }
-// }
 pubsub.subscribe('updateTitle', displayTitle)
+pubsub.subscribe('updateDesc', displayDesc)
 pubsub.subscribe('updateTitle', displayTitleLength)
 pubsub.subscribe('updateTitle', measureTitleWidth)
 
