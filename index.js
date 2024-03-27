@@ -11,6 +11,7 @@ const fontFaceRobotoBold = new FontFace('Roboto-bold', `url(${fontURLRobotoBold}
 
 const serpData = {
     title: '',
+    titleWidth: 0,
     desc: '',
 }
 
@@ -85,7 +86,8 @@ function measureTitleWidth(_event, data) {
     ctx.font = '24px'
     const text = serpData.title
     const textMetrics = ctx.measureText(text)
-    console.log(textMetrics.width)
+    serpData.titleWidth = textMetrics.width
+    console.log(serpData.titleWidth)
 }
 
 function displayTitle(_event, data) {
@@ -116,9 +118,9 @@ function descUpdateEvent(e) {
 }
 
 pubsub.subscribe('updateTitle', displayTitle)
-pubsub.subscribe('updateDesc', displayDesc)
 pubsub.subscribe('updateTitle', displayTitleLength)
 pubsub.subscribe('updateTitle', measureTitleWidth)
+pubsub.subscribe('updateDesc', displayDesc)
 
 /* ************************************** event listeners ************************************** */
 titleInput.addEventListener('input', titleUpdateEvent)
