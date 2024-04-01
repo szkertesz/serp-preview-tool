@@ -8,11 +8,40 @@ const fontFaceRobotoBold = new FontFace('Roboto-bold', `url(${fontURLRobotoBold}
     style: 'normal',
     weight: 500,
 })
+const settings = {
+    title: {
+        charNum: {
+            min: 30,
+            max: 60,
+        },
+        pxWidth: {
+            min: 0,
+            max: 600,
+        }
+    },
+    desc: {
+        charNum: {
+            min: 96,
+            max: 160,
+        },
+        pxWidth: {
+            min: 0,
+            max: 990,
+        }
+    }
+}
 
 const serpData = {
-    title: '',
-    titleWidth: 0,
-    desc: '',
+    title: {
+        string: '',
+        width: 0,
+        chars: 0,
+    },
+    desc: {
+        string: '',
+        width: 0,
+        chars: 0,
+    }
 }
 
 ;(async function loadFonts() {
@@ -84,31 +113,31 @@ function measureTitleWidth(_event, data) {
     const canvas = document.getElementById('title-canvas')
     const ctx = canvas.getContext('2d')
     ctx.font = '24px'
-    const text = serpData.title
+    const text = serpData.title.string
     const textMetrics = ctx.measureText(text)
-    serpData.titleWidth = textMetrics.width
-    console.log(serpData.titleWidth)
+    serpData.title.width = textMetrics.width
+    console.log(serpData.title.width)
 }
 
 function displayTitle(_event, data) {
     const titleEl = document.getElementById('title-display')
-    titleEl.innerText = serpData.title
+    titleEl.innerText = serpData.title.string
 }
 
 function displayDesc(_event, data) {
     const descEl = document.getElementById('desc-display')
-    descEl.innerText = serpData.desc
+    descEl.innerText = serpData.desc.string
 }
 
 function displayTitleLength(_event, data) {
     const titleLengthEl = document.getElementById('title-length-display')
-    titleLengthEl.innerText = `The length of title: ${Math.ceil(serpData.title.length)}`
+    titleLengthEl.innerText = `The length of title: ${Math.ceil(serpData.title.string.length)}`
 }
 
 /* ************************************** subscribers ************************************** */
 
 function titleUpdateEvent(e) {
-    serpData.title = e.target.value
+    serpData.title.string = e.target.value
     pubsub.publish('updateTitle', { serpData })
 }
 
