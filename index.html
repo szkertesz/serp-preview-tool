@@ -17,233 +17,248 @@
 
 <body>
     <div class="govuk-width-container">
-    <header>
-        <h1 class="govuk-heading-xl">SERP Preview Tool</h1>
-    </header>
-    <main class="govuk-main-wrapper">
-        <section>
-            <h2 class="govuk-heading-l">Inputs</h2>
-            <form action="">
-                <div>
-                    <label for="title-tag-input">Title tag</label>
-                    <input type="text" id="title-tag-input" autocomplete="off">
-                </div>
-                <div>
-                    <label for="desc-input">Description</label>
-                    <textarea type="text" id="desc-input" autocomplete="off"></textarea>
-                </div>
-            </form>
-        </section>
-        <section id="serp-ui">
-            <div class="CvDJxb" id="searchform">
-                <div class="sfbg"></div>
-                <div class="JryvJ">
-                    <div class="ym1pid KLEmSd"></div>
-                </div>
-                <div class="Q3DXx yIbDgf">
-                    <form class="tsf" action="/search" id="tsf" autocomplete="off"  method="GET"
-                        name="f" role="search">
-                        <div>
-                            <div class="A8SBwf">
-                                <div class="logo"><a href="https://www.google.com" title="Go to Google Home" id="logo"
-                                        ><img class="jfN4p"
-                                            src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
-                                            style="background:none" alt="Google" height="30" width="92"></a></div>
-                                <div class="RNNXgb">
-                                    <div class="SDkEP">
-                                        <div class="iblpc">
-                                            <div class="CcAdNb"><span class="QCzoEc z1asCe MZy1Rb"
-                                                    style="height:20px;line-height:20px;width:20px"><svg
-                                                        focusable="false" xmlns="http://www.w3.org/2000/svg"
-                                                        viewBox="0 0 24 24">
+        <header class="govuk-main-wrapper--auto-spacing">
+            <span class="govuk-caption-xl">Optimize Page Title & Meta Description</span>
+            <h1 class="govuk-heading-xl">SERP Preview Tool</h1>
+        </header>
+        <main class="govuk-main-wrapper--auto-spacing">
+            <section class="govuk-grid-row">
+                <form action="" class="govuk-grid-column-two-thirds-from-desktop">
+                    <fieldset class="govuk-fieldset">
+                        <legend class="govuk-fieldset__legend govuk-fieldset__legend--l">
+                            <h2 class="govuk-fieldset__heading">Inputs</h2>
+                        </legend>
+                        <div class="govuk-form-group">
+                            <label class="govuk-label govuk-label--m" for="title-tag-input">
+                                Title tag
+                            </label>
+                            <div id="title-tag-input-hint" class="govuk-hint">
+                                <span id="title-length-display"></span> chars (<span id="title-width-display"></span> /
+                                600px)
+                            </div>
+                            <input id="title-tag-input" type="text" name="title-tag-input" class="govuk-input"
+                                autocomplete="off">
+                        </div>
+                        <div class="govuk-form-group">
+                            <label for="desc-input" class="govuk-label govuk-label--m">Meta Description</label>
+                            <textarea type="text" id="desc-input" name="desc-input" class="govuk-textarea" rows="4"></textarea>
+                        </div>
+                    </fieldset>
+                </form>
+            </section>
+            <section id="serp-ui">
+                <div class="CvDJxb" id="searchform">
+                    <div class="sfbg"></div>
+                    <div class="JryvJ">
+                        <div class="ym1pid KLEmSd"></div>
+                    </div>
+                    <div class="Q3DXx yIbDgf">
+                        <form class="tsf" action="/search" id="tsf" autocomplete="off" method="GET" name="f"
+                            role="search">
+                            <div>
+                                <div class="A8SBwf">
+                                    <div class="logo"><a href="https://www.google.com" title="Go to Google Home"
+                                            id="logo"><img class="jfN4p"
+                                                src="https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_92x30dp.png"
+                                                style="background:none" alt="Google" height="30" width="92"></a></div>
+                                    <div class="RNNXgb">
+                                        <div class="SDkEP">
+                                            <div class="iblpc">
+                                                <div class="CcAdNb"><span class="QCzoEc z1asCe MZy1Rb"
+                                                        style="height:20px;line-height:20px;width:20px"><svg
+                                                            focusable="false" xmlns="http://www.w3.org/2000/svg"
+                                                            viewBox="0 0 24 24">
+                                                            <path
+                                                                d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
+                                                            </path>
+                                                        </svg></span></div>
+                                            </div>
+                                            <div class="a4bIc">
+                                                <div class="YacQv"></div>
+                                                <div class="gLFyf i4ySpb"></div><textarea class="gLFyf" id="APjFqb"
+                                                    maxlength="2048" name="q" role="combobox" rows="1"
+                                                    spellcheck="false"></textarea>
+                                            </div>
+                                            <div class="dRYYxd">
+                                                <div class="BKRPef">
+                                                    <div class="M2vV3 vOY7J" tabindex="0" aria-label="Clear"
+                                                        role="button">
+                                                        <span class="ExCKkf z1asCe rzyADb"><svg focusable="false"
+                                                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                                <path
+                                                                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
+                                                                </path>
+                                                            </svg></span>
+                                                    </div> <span class="ACRAdd M2vV3"></span>
+                                                </div>
+                                                <div class="XDyW0e" aria-label="Search by voice" role="button"
+                                                    tabindex="0">
+                                                    <svg class="goxjub" focusable="false" viewBox="0 0 24 24"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill="#4285f4"
+                                                            d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z">
+                                                        </path>
+                                                        <path fill="#34a853" d="m11 18.08h2v3.92h-2z"></path>
+                                                        <path fill="#fbbc05"
+                                                            d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z">
+                                                        </path>
+                                                        <path fill="#ea4335"
+                                                            d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z">
+                                                        </path>
+                                                    </svg>
+                                                </div>
+                                                <div class="nDcEnd" role="button" tabindex="0"><svg class="Gdd5U"
+                                                        focusable="false" viewBox="0 0 192 192"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <rect fill="none" height="192" width="192"></rect>
+                                                        <g>
+                                                            <circle fill="#34a853" cx="144.07" cy="144" r="16"></circle>
+                                                            <circle fill="#4285f4" cx="96.07" cy="104" r="24"></circle>
+                                                            <path fill="#ea4335"
+                                                                d="M24,135.2c0,18.11,14.69,32.8,32.8,32.8H96v-16l-40.1-0.1c-8.8,0-15.9-8.19-15.9-17.9v-18H24V135.2z">
+                                                            </path>
+                                                            <path fill="#fbbc05"
+                                                                d="M168,72.8c0-18.11-14.69-32.8-32.8-32.8H116l20,16c8.8,0,16,8.29,16,18v30h16V72.8z">
+                                                            </path>
+                                                            <path fill="#4285f4"
+                                                                d="M112,24l-32,0L68,40H56.8C38.69,40,24,54.69,24,72.8V92h16V74c0-9.71,7.2-18,16-18h80L112,24z">
+                                                            </path>
+                                                        </g>
+                                                    </svg></div>
+                                            </div>
+                                        </div> <button class="Tg7LZd" aria-label="Search" type="button">
+                                            <div class="zgAlFc"> <span class="z1asCe MZy1Rb"><svg focusable="false"
+                                                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                                                         <path
                                                             d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
                                                         </path>
-                                                    </svg></span></div>
-                                        </div>
-                                        <div class="a4bIc">
-                                            <div class="YacQv"></div>
-                                            <div class="gLFyf i4ySpb"></div><textarea class="gLFyf" id="APjFqb"
-                                                maxlength="2048" name="q" role="combobox" rows="1"
-                                                spellcheck="false"></textarea>
-                                        </div>
-                                        <div class="dRYYxd">
-                                            <div class="BKRPef">
-                                                <div class="M2vV3 vOY7J" tabindex="0" aria-label="Clear" role="button">
-                                                    <span class="ExCKkf z1asCe rzyADb"><svg focusable="false"
-                                                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                            <path
-                                                                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z">
-                                                            </path>
-                                                        </svg></span>
-                                                </div> <span class="ACRAdd M2vV3"></span>
-                                            </div>
-                                            <div class="XDyW0e" aria-label="Search by voice" role="button" tabindex="0">
-                                                <svg class="goxjub" focusable="false" viewBox="0 0 24 24"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path fill="#4285f4"
-                                                        d="m12 15c1.66 0 3-1.31 3-2.97v-7.02c0-1.66-1.34-3.01-3-3.01s-3 1.34-3 3.01v7.02c0 1.66 1.34 2.97 3 2.97z">
-                                                    </path>
-                                                    <path fill="#34a853" d="m11 18.08h2v3.92h-2z"></path>
-                                                    <path fill="#fbbc05"
-                                                        d="m7.05 16.87c-1.27-1.33-2.05-2.83-2.05-4.87h2c0 1.45 0.56 2.42 1.47 3.38v0.32l-1.15 1.18z">
-                                                    </path>
-                                                    <path fill="#ea4335"
-                                                        d="m12 16.93a4.97 5.25 0 0 1 -3.54 -1.55l-1.41 1.49c1.26 1.34 3.02 2.13 4.95 2.13 3.87 0 6.99-2.92 6.99-7h-1.99c0 2.92-2.24 4.93-5 4.93z">
-                                                    </path>
-                                                </svg>
-                                            </div>
-                                            <div class="nDcEnd" role="button" tabindex="0"><svg class="Gdd5U"
-                                                    focusable="false" viewBox="0 0 192 192"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <rect fill="none" height="192" width="192"></rect>
-                                                    <g>
-                                                        <circle fill="#34a853" cx="144.07" cy="144" r="16"></circle>
-                                                        <circle fill="#4285f4" cx="96.07" cy="104" r="24"></circle>
-                                                        <path fill="#ea4335"
-                                                            d="M24,135.2c0,18.11,14.69,32.8,32.8,32.8H96v-16l-40.1-0.1c-8.8,0-15.9-8.19-15.9-17.9v-18H24V135.2z">
-                                                        </path>
-                                                        <path fill="#fbbc05"
-                                                            d="M168,72.8c0-18.11-14.69-32.8-32.8-32.8H116l20,16c8.8,0,16,8.29,16,18v30h16V72.8z">
-                                                        </path>
-                                                        <path fill="#4285f4"
-                                                            d="M112,24l-32,0L68,40H56.8C38.69,40,24,54.69,24,72.8V92h16V74c0-9.71,7.2-18,16-18h80L112,24z">
-                                                        </path>
-                                                    </g>
-                                                </svg></div>
-                                        </div>
-                                    </div> <button class="Tg7LZd" aria-label="Search" type="button">
-                                        <div class="zgAlFc"> <span class="z1asCe MZy1Rb"><svg focusable="false"
-                                                    xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                                    <path
-                                                        d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z">
-                                                    </path>
-                                                </svg></span> </div>
-                                    </button>
+                                                    </svg></span> </div>
+                                        </button>
+                                    </div>
+                                    <div class="M8H8pb"></div>
                                 </div>
-                                <div class="M8H8pb"></div>
+                                <div
+                                    style="background:url(https://www.google.com/images/searchbox/desktop_searchbox_sprites318_hr.webp)">
+                                </div>
                             </div>
-                            <div
-                                style="background:url(https://www.google.com/images/searchbox/desktop_searchbox_sprites318_hr.webp)">
-                            </div>
-                        </div>
-                    </form>
+                        </form>
+                    </div>
                 </div>
-            </div>
 
-            <div class="rfiSsc">
-                <div class="sBbkle" role="navigation">
-                    <div class="xhjkHe CEXVle">
-                        <div class="TrmO7">
-                            <div class="gDIH3" role="navigation">
-                                <div class="ZeeOc">
-                                    <div id="bqHHPb" class="bqHHPb">
-                                        <div id="hdtb-sc" class="fMHynf Jb8vdb">
-                                            <h1 class="bNg8Rb OhScic zsYMMe BBwThe"
-                                                style="clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px;z-index:-1000;-webkit-user-select:none">
-                                                <font style="vertical-align: inherit;">
-                                                    <font style="vertical-align: inherit;">Filters and themes</font>
-                                                </font>
-                                            </h1>
-                                            <div class="PHj8of">
-                                                <div class="qogDvd">
-                                                    <div class="crJ18e">
-                                                        <div class="Ap1Qsc" role="listitem"
-                                                        ><span class="nPDzT">
-                                                                <div selected="" jsname="bVqjv" class="YmvwI">
-                                                                    <font style="vertical-align: inherit;">
-                                                                        <font style="vertical-align: inherit;">All
+                <div class="rfiSsc">
+                    <div class="sBbkle" role="navigation">
+                        <div class="xhjkHe CEXVle">
+                            <div class="TrmO7">
+                                <div class="gDIH3" role="navigation">
+                                    <div class="ZeeOc">
+                                        <div id="bqHHPb" class="bqHHPb">
+                                            <div id="hdtb-sc" class="fMHynf Jb8vdb">
+                                                <h1 class="bNg8Rb OhScic zsYMMe BBwThe"
+                                                    style="clip:rect(1px,1px,1px,1px);height:1px;overflow:hidden;position:absolute;white-space:nowrap;width:1px;z-index:-1000;-webkit-user-select:none">
+                                                    <font style="vertical-align: inherit;">
+                                                        <font style="vertical-align: inherit;">Filters and themes</font>
+                                                    </font>
+                                                </h1>
+                                                <div class="PHj8of">
+                                                    <div class="qogDvd">
+                                                        <div class="crJ18e">
+                                                            <div class="Ap1Qsc" role="listitem"><span class="nPDzT">
+                                                                    <div selected="" jsname="bVqjv" class="YmvwI">
+                                                                        <font style="vertical-align: inherit;">
+                                                                            <font style="vertical-align: inherit;">All
+                                                                            </font>
                                                                         </font>
-                                                                    </font>
-                                                                </div>
-                                                            </span></div>
-                                                        <div><a href="#" class="LatpMc nPDzT T3FoJb"
-                                                             role="link">
-                                                                <div jsname="bVqjv" class="YmvwI">
-                                                                    <font style="vertical-align: inherit;">
-                                                                        <font style="vertical-align: inherit;">Pictures
+                                                                    </div>
+                                                                </span></div>
+                                                            <div><a href="#" class="LatpMc nPDzT T3FoJb" role="link">
+                                                                    <div jsname="bVqjv" class="YmvwI">
+                                                                        <font style="vertical-align: inherit;">
+                                                                            <font style="vertical-align: inherit;">
+                                                                                Pictures
+                                                                            </font>
                                                                         </font>
-                                                                    </font>
-                                                                </div>
-                                                            </a></div>
-                                                        <div><a href="#" class="LatpMc nPDzT T3FoJb"
-                                                             role="link">
-                                                                <div jsname="bVqjv" class="YmvwI">
-                                                                    <font style="vertical-align: inherit;">
-                                                                        <font style="vertical-align: inherit;">News
+                                                                    </div>
+                                                                </a></div>
+                                                            <div><a href="#" class="LatpMc nPDzT T3FoJb" role="link">
+                                                                    <div jsname="bVqjv" class="YmvwI">
+                                                                        <font style="vertical-align: inherit;">
+                                                                            <font style="vertical-align: inherit;">News
+                                                                            </font>
                                                                         </font>
-                                                                    </font>
-                                                                </div>
-                                                            </a></div>
-                                                        <div><a href="#" class="LatpMc nPDzT T3FoJb"
-                                                             role="link">
-                                                                <div jsname="bVqjv" class="YmvwI">
-                                                                    <font style="vertical-align: inherit;">
-                                                                        <font style="vertical-align: inherit;">Videos
+                                                                    </div>
+                                                                </a></div>
+                                                            <div><a href="#" class="LatpMc nPDzT T3FoJb" role="link">
+                                                                    <div jsname="bVqjv" class="YmvwI">
+                                                                        <font style="vertical-align: inherit;">
+                                                                            <font style="vertical-align: inherit;">
+                                                                                Videos
+                                                                            </font>
                                                                         </font>
-                                                                    </font>
-                                                                </div>
-                                                            </a></div>
-                                                        <div><a href="#" class="LatpMc nPDzT T3FoJb"
-                                                             role="link">
-                                                                <div jsname="bVqjv" class="YmvwI">
-                                                                    <font style="vertical-align: inherit;">
-                                                                        <font style="vertical-align: inherit;">Books
+                                                                    </div>
+                                                                </a></div>
+                                                            <div><a href="#" class="LatpMc nPDzT T3FoJb" role="link">
+                                                                    <div jsname="bVqjv" class="YmvwI">
+                                                                        <font style="vertical-align: inherit;">
+                                                                            <font style="vertical-align: inherit;">Books
+                                                                            </font>
                                                                         </font>
-                                                                    </font>
-                                                                </div>
-                                                            </a></div>
-                                                        <div class="SF7xd">
-                                                            <g-popup class="CzKhHb" -haspopup="true" role="button"
-                                                                tabindex="0" jsaction="WFrRFb;keydown:uYT2Vb">
-                                                                <div class="Lu57id"><span
-                                                                        style="height:16px;line-height:16px;width:16px"
-                                                                        class="z1asCe SaPW2b"><svg focusable="false"
-                                                                            xmlns="http://www.w3.org/2000/svg"
-                                                                            viewBox="0 0 24 24">
-                                                                            <path
-                                                                                d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z">
-                                                                            </path>
-                                                                        </svg></span>
-                                                                    <font style="vertical-align: inherit;">
-                                                                        <font style="vertical-align: inherit;">Others
+                                                                    </div>
+                                                                </a></div>
+                                                            <div class="SF7xd">
+                                                                <g-popup class="CzKhHb" -haspopup="true" role="button"
+                                                                    tabindex="0" jsaction="WFrRFb;keydown:uYT2Vb">
+                                                                    <div class="Lu57id"><span
+                                                                            style="height:16px;line-height:16px;width:16px"
+                                                                            class="z1asCe SaPW2b"><svg focusable="false"
+                                                                                xmlns="http://www.w3.org/2000/svg"
+                                                                                viewBox="0 0 24 24">
+                                                                                <path
+                                                                                    d="M12 8c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm0 2c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm0 6c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z">
+                                                                                </path>
+                                                                            </svg></span>
+                                                                        <font style="vertical-align: inherit;">
+                                                                            <font style="vertical-align: inherit;">
+                                                                                Others
+                                                                            </font>
                                                                         </font>
-                                                                    </font>
-                                                                </div>
-                                                        </div>
-                                                        <div jsname="V68bde" class="UjBGL iRQHZe"
-                                                            style="display:none;z-index:200">
-                                                            <div class="CybWFf" id="_Kmn_ZdjRH5679u8PhfSnkA4_29">
-                                                                <div class="LtmTod" id="Kmn_ZdjRH5679u8PhfSnkA4__8">
-                                                                    <div>
-                                                                        <a href="#" class="LatpMc d4DFfb nPDzT T3FoJb"
-                                                                         role="link"
-                                                                        >
-                                                                            <div class="eJWNqc YmvwI" jsname="bVqjv">
-                                                                                <font style="vertical-align: inherit;">
+                                                                    </div>
+                                                            </div>
+                                                            <div jsname="V68bde" class="UjBGL iRQHZe"
+                                                                style="display:none;z-index:200">
+                                                                <div class="CybWFf" id="_Kmn_ZdjRH5679u8PhfSnkA4_29">
+                                                                    <div class="LtmTod" id="Kmn_ZdjRH5679u8PhfSnkA4__8">
+                                                                        <div>
+                                                                            <a href="#"
+                                                                                class="LatpMc d4DFfb nPDzT T3FoJb"
+                                                                                role="link">
+                                                                                <div class="eJWNqc YmvwI"
+                                                                                    jsname="bVqjv">
                                                                                     <font
                                                                                         style="vertical-align: inherit;">
-                                                                                        Finances</font>
-                                                                                </font>
-                                                                            </div>
-                                                                        </a>
+                                                                                        <font
+                                                                                            style="vertical-align: inherit;">
+                                                                                            Finances</font>
+                                                                                    </font>
+                                                                                </div>
+                                                                            </a>
+                                                                        </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
+                                                            </g-popup>
                                                         </div>
-                                                        </g-popup>
-                                                    </div>
-                                                    <div class="T7Ko6" id="tools_1">
-                                                        <div class="BaegVc YmvwI" id="hdtb-tls"
-                                                            aria-controls="hdtbMenus" aria-expanded="false"
-                                                            role="button" tabindex="0" jsname="bVqjv">
-                                                            <font style="vertical-align: inherit;">
-                                                                <font style="vertical-align: inherit;">Tools</font>
-                                                            </font>
+                                                        <div class="T7Ko6" id="tools_1">
+                                                            <div class="BaegVc YmvwI" id="hdtb-tls"
+                                                                aria-controls="hdtbMenus" aria-expanded="false"
+                                                                role="button" tabindex="0" jsname="bVqjv">
+                                                                <font style="vertical-align: inherit;">
+                                                                    <font style="vertical-align: inherit;">Tools</font>
+                                                                </font>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                </div>
 
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -252,46 +267,46 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section>
-            <h2>Results</h2>
-            <p>For the most accurate results, view on a desktop browser.</p>
-            <span id="title-length-display"></span>
-            <div>
-                <span id="title-display"></span>
-            </div>
-            <div>
-                <span id="desc-display"></span>
-            </div>
-            <canvas id="title-canvas" width="0" height="0"></canvas>
-        </section>
-        <section>
-            <h2>Research findings</h2>
-            <h3>Title Tag length for Google</h3>
+            </section>
+            <section id="results" class="results">
+                <div>
+                    <span id="title-display"></span>
+                </div>
+                <div>
+                    <span id="desc-display"></span>
+                </div>
+                <canvas id="title-canvas" width="0" height="0"></canvas>
+            </section>
+            <section>
+                <h2>Research findings</h2>
+                <h3>Title Tag length for Google</h3>
 
-            <h4><a href="https://www.conductor.com/academy/title-tag/">Conductor</a></h4>
-            <p>Minimum amount: 30 characters or 285 pixels<br>
-                Maximum amount: 60 characters or 575 pixels</p>
+                <h4><a href="https://www.conductor.com/academy/title-tag/">Conductor</a></h4>
+                <p>Minimum amount: 30 characters or 285 pixels<br>
+                    Maximum amount: 60 characters or 575 pixels</p>
 
-            <h4><a href="https://moz.com/learn/seo/title-tag">Moz.com</a></h4>
-            <p>While Google does not specify a recommended length for title tags, most desktop and mobile browsers are
-                able to display the first 50–60 characters of a title tag. If you keep your titles under 60 characters,
-                our research suggests that you can expect about 90% of your titles to display properly in the SERPs.</p>
-            <p>Display titles in Google results have a 600-pixel width limit, but most are truncated before that at the
-                nearest word break.</p>
+                <h4><a href="https://moz.com/learn/seo/title-tag">Moz.com</a></h4>
+                <p>While Google does not specify a recommended length for title tags, most desktop and mobile browsers
+                    are
+                    able to display the first 50–60 characters of a title tag. If you keep your titles under 60
+                    characters,
+                    our research suggests that you can expect about 90% of your titles to display properly in the SERPs.
+                </p>
+                <p>Display titles in Google results have a 600-pixel width limit, but most are truncated before that at
+                    the
+                    nearest word break.</p>
 
-            <h3>Meta Descriptions</h3>
-            <h4><a href="https://moz.com/learn/seo/meta-description">Moz.com</a></h4>
-            <p>Google generally truncates snippets to ~155-160 characters. It's best to keep meta descriptions long
-                enough that they're sufficiently descriptive, so we recommend descriptions between 50 and 160
-                characters.</p>
-        </section>
-    </main>
-    <footer>
-        <p>Created by szkertesz</p>
-    </footer>
-</div>
+                <h3>Meta Descriptions</h3>
+                <h4><a href="https://moz.com/learn/seo/meta-description">Moz.com</a></h4>
+                <p>Google generally truncates snippets to ~155-160 characters. It's best to keep meta descriptions long
+                    enough that they're sufficiently descriptive, so we recommend descriptions between 50 and 160
+                    characters.</p>
+            </section>
+        </main>
+        <footer>
+            <p>Created by szkertesz</p>
+        </footer>
+    </div>
 </body>
 
 </html>

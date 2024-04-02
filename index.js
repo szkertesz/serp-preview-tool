@@ -1,30 +1,33 @@
 const titleInput = document.getElementById('title-tag-input')
 const descInput = document.getElementById('desc-input')
 
+const titleEl = document.getElementById('title-display')
+const descEl = document.getElementById('desc-display')
+const titleLengthEl = document.getElementById('title-length-display')
+const titleWidthEl = document.getElementById('title-width-display')
+
+
 const fontURLRoboto = 'https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2'
 const fontURLRobotoBold = 'https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmWUlfBBc4.woff2'
-const fontFaceRoboto = new FontFace('Roboto', `url(${fontURLRoboto})`)
-const fontFaceRobotoBold = new FontFace('Roboto-bold', `url(${fontURLRobotoBold})`, {
-    style: 'normal',
-    weight: 500,
-})
+
 const settings = {
     title: {
-        charNum: {
+        chars: {
             min: 30,
             max: 60,
         },
-        pxWidth: {
+        width: {
             min: 0,
             max: 600,
-        }
+        },
+        font: 'Roboto'
     },
     desc: {
-        charNum: {
+        chars: {
             min: 96,
             max: 160,
         },
-        pxWidth: {
+        width: {
             min: 0,
             max: 990,
         }
@@ -34,6 +37,7 @@ const settings = {
 const serpData = {
     title: {
         string: '',
+        trimmedString: '',
         width: 0,
         chars: 0,
     },
@@ -44,9 +48,23 @@ const serpData = {
     }
 }
 
+/* ************************************** load fonts ************************************** */
+const fontFaceRoboto = new FontFace('Roboto', `url(${fontURLRoboto})`)
+const fontFaceRobotoBold = new FontFace('Roboto-bold', `url(${fontURLRobotoBold})`, {
+    style: 'normal',
+    weight: 500,
+})
+
 ;(async function loadFonts() {
     await fontFaceRoboto.load()
     document.fonts.add(fontFaceRoboto)
+    console.log('Roboto font has been loaded')
+})()
+
+/* ************************************** add initial data to render in UI ************************************** */
+;(function initFieldData() {
+    titleWidthEl.innerText = serpData.title.width
+    titleLengthEl.innerText = Math.ceil(serpData.title.string.length)
 })()
 
 
@@ -100,38 +118,31 @@ const pubsub = (() => {
     };
 })();
 
-/* ************************************** load fonts ************************************** */
-// fontFaceRoboto.load().then((font) =>{
-//     document.fonts.add(font)
-// })
-// fontFaceRobotoBold.load().then((font) =>{
-//     document.fonts.add(font)
-// })
-
 /* ************************************** callbacks ************************************** */
 function measureTitleWidth(_event, data) {
-    const canvas = document.getElementById('title-canvas')
+    const canvas = measureTitleWidth.canvas || (measureTitleWidth.canvas = document.getElementById('title-canvas'))
     const ctx = canvas.getContext('2d')
-    ctx.font = '24px'
+    ctx.font = `20px ${settings.title.font}`
     const text = serpData.title.string
     const textMetrics = ctx.measureText(text)
-    serpData.title.width = textMetrics.width
+    serpData.title.width = Math.ceil(textMetrics.width)
+    titleWidthEl.innerText = serpData.title.width
+}
+
+function controlTitleWidth(_event) {
     console.log(serpData.title.width)
 }
 
 function displayTitle(_event, data) {
-    const titleEl = document.getElementById('title-display')
     titleEl.innerText = serpData.title.string
 }
 
 function displayDesc(_event, data) {
-    const descEl = document.getElementById('desc-display')
     descEl.innerText = serpData.desc.string
 }
 
 function displayTitleLength(_event, data) {
-    const titleLengthEl = document.getElementById('title-length-display')
-    titleLengthEl.innerText = `The length of title: ${Math.ceil(serpData.title.string.length)}`
+    titleLengthEl.innerText = Math.ceil(serpData.title.string.length)
 }
 
 /* ************************************** subscribers ************************************** */
@@ -149,6 +160,7 @@ function descUpdateEvent(e) {
 pubsub.subscribe('updateTitle', displayTitle)
 pubsub.subscribe('updateTitle', displayTitleLength)
 pubsub.subscribe('updateTitle', measureTitleWidth)
+pubsub.subscribe('updateTitle', controlTitleWidth)
 pubsub.subscribe('updateDesc', displayDesc)
 
 /* ************************************** event listeners ************************************** */
