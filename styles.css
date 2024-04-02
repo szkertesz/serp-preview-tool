@@ -1,6 +1,6 @@
 :root {
     --font-system-sans-serif: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-    --font-result-block: arial, sans-serif;
+    --font-result-block: Roboto, arial, sans-serif;
 }
 
 body {

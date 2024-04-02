@@ -6,7 +6,6 @@ const descEl = document.getElementById('desc-display')
 const titleLengthEl = document.getElementById('title-length-display')
 const titleWidthEl = document.getElementById('title-width-display')
 
-
 const fontURLRoboto = 'https://fonts.gstatic.com/s/roboto/v30/KFOmCnqEu92Fr1Mu4mxK.woff2'
 const fontURLRobotoBold = 'https://fonts.gstatic.com/s/roboto/v30/KFOlCnqEu92Fr1MmWUlfBBc4.woff2'
 
@@ -20,7 +19,7 @@ const settings = {
             min: 0,
             max: 600,
         },
-        font: 'Roboto'
+        font: 'Roboto',
     },
     desc: {
         chars: {
@@ -38,8 +37,10 @@ const serpData = {
     title: {
         string: '',
         trimmedString: '',
+        ellipsisWidth: 0,
         width: 0,
         chars: 0,
+        canvas: null,
     },
     desc: {
         string: '',
@@ -61,7 +62,13 @@ const fontFaceRobotoBold = new FontFace('Roboto-bold', `url(${fontURLRobotoBold}
     console.log('Roboto font has been loaded')
 })()
 
-/* ************************************** add initial data to render in UI ************************************** */
+const titleCanvas = serpData.title.canvas || (serpData.title.canvas = document.getElementById('title-canvas'))
+const titleCtx = titleCanvas.getContext('2d')
+titleCtx.font = `20px ${settings.title.font}`
+
+serpData.title.ellipsisWidth = Math.ceil(titleCtx.measureText('...'))
+
+/* ************************************** add initial data to render in UI on load ************************************** */
 ;(function initFieldData() {
     titleWidthEl.innerText = serpData.title.width
     titleLengthEl.innerText = Math.ceil(serpData.title.string.length)
@@ -120,21 +127,24 @@ const pubsub = (() => {
 
 /* ************************************** callbacks ************************************** */
 function measureTitleWidth(_event, data) {
-    const canvas = measureTitleWidth.canvas || (measureTitleWidth.canvas = document.getElementById('title-canvas'))
-    const ctx = canvas.getContext('2d')
-    ctx.font = `20px ${settings.title.font}`
     const text = serpData.title.string
-    const textMetrics = ctx.measureText(text)
+    const textMetrics = titleCtx.measureText(text)
     serpData.title.width = Math.ceil(textMetrics.width)
-    titleWidthEl.innerText = serpData.title.width
 }
 
 function controlTitleWidth(_event) {
+    if (serpData.title.width >= settings.title.width.max) {
+        const words = serpData.title.string.split(' ')
+        console.log(words)
+    }
     console.log(serpData.title.width)
 }
 
 function displayTitle(_event, data) {
     titleEl.innerText = serpData.title.string
+}
+function displayTitleWidth(_event, data) {
+    titleWidthEl.innerText = serpData.title.width
 }
 
 function displayDesc(_event, data) {
@@ -160,6 +170,7 @@ function descUpdateEvent(e) {
 pubsub.subscribe('updateTitle', displayTitle)
 pubsub.subscribe('updateTitle', displayTitleLength)
 pubsub.subscribe('updateTitle', measureTitleWidth)
+pubsub.subscribe('updateTitle', displayTitleWidth)
 pubsub.subscribe('updateTitle', controlTitleWidth)
 pubsub.subscribe('updateDesc', displayDesc)
 
